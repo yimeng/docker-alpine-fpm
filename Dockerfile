@@ -2,7 +2,7 @@
 FROM alpine
 
 # for china
-COPY repositories /etc/apk/repositories 
+#COPY repositories /etc/apk/repositories 
 
 RUN \
   apk update && \
@@ -13,4 +13,4 @@ RUN \
 WORKDIR /data
 
 # Define default command.
-CMD ["bash"]
+#CMD ["bash"]
