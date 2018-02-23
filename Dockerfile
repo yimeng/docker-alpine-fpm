@@ -2,7 +2,9 @@
 FROM alpine
 
 # for china
-#COPY repositories /etc/apk/repositories 
+COPY repositories /etc/apk/repositories 
+
+COPY ./docker-entrypoint.sh /
 
 RUN \
   apk update && \
@@ -10,7 +12,9 @@ RUN \
   gem install --no-ri --no-rdoc fpm
 
 # Define working directory.
-WORKDIR /data
+#VOLUME ["/data/fpm"]
+#WORKDIR /data
+
 
 # Define default command.
-#CMD ["bash"]
+ENTRYPOINT ["/docker-entrypoint.sh"]
